@@ -5,28 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ambulance Service Lahore | 24/7 Emergency ICU Ambulance</title>
 
-<meta name="description" content="24/7 Ambulance Service Lahore. ICU, Ventilator, Cardiac & Emergency Ambulance All Over Lahore. Fast Response. Call 03294857156 Now.">
-<meta name="keywords" content="Ambulance Service Lahore, ICU Ambulance Lahore, Emergency Ambulance Lahore, Ventilator Ambulance Lahore">
-<meta name="author" content="Ambulance Service Lahore">
+<meta name="description" content="24/7 Ambulance Service Lahore. ICU, Ventilator, Cardiac & Emergency Ambulance All Over Lahore. Call 03294857156 Now.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--primary:#c40000;
+--bg:#f8f9fa;
+--text:#333;
+--white:#fff;
+}
+
+body.dark{
+--bg:#111;
+--text:#eee;
+--white:#1a1a1a;
+}
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#f8f9fa;color:#333;line-height:1.6;}
+body{background:var(--bg);color:var(--text);line-height:1.6;}
 
 header{
-background:linear-gradient(rgba(196,0,0,0.9),rgba(150,0,0,0.9)),url('https://images.unsplash.com/photo-1587740896339-96a76170508d');
-background-size:cover;
-background-position:center;
+background:linear-gradient(rgba(196,0,0,0.9),rgba(150,0,0,0.9));
 color:#fff;
 padding:80px 20px;
 text-align:center;
 }
 
-header h1{font-size:40px;font-weight:700;margin-bottom:15px;}
-header p{font-size:18px;margin-bottom:25px;}
-
+h1{font-size:38px;margin-bottom:15px;}
 .btn{
 display:inline-block;
 padding:14px 28px;
@@ -34,52 +41,51 @@ margin:8px;
 border-radius:50px;
 text-decoration:none;
 font-weight:600;
-transition:0.3s;
+cursor:pointer;
 }
 
-.btn-call{background:#fff;color:#c40000;}
-.btn-call:hover{background:#eee;}
-
+.btn-call{background:#fff;color:var(--primary);}
 .btn-whatsapp{background:#25D366;color:#fff;}
-.btn-whatsapp:hover{opacity:0.9;}
 
 section{padding:60px 20px;max-width:1100px;margin:auto;}
-
 .section-title{text-align:center;margin-bottom:40px;}
-.section-title h2{color:#c40000;font-size:30px;}
+.section-title h2{color:var(--primary);}
 
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
 .service-box{
-background:#fff;
+background:var(--white);
 padding:25px;
 border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-transition:0.3s;
-}
-.service-box:hover{transform:translateY(-5px);}
-.service-box h3{color:#c40000;margin-bottom:10px;}
-
-.trust{
-background:#c40000;
-color:#fff;
-text-align:center;
-padding:40px 20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.coverage ul{columns:2;margin-top:20px;}
-.coverage li{margin-bottom:8px;}
+form{
+background:var(--white);
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
 
-.map iframe{width:100%;height:350px;border-radius:15px;border:0;}
+input, select, textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
 
 footer{
-background:#111;
+background:#000;
 color:#fff;
 text-align:center;
 padding:20px;
-margin-top:40px;
 }
 
-/* Floating Buttons */
 .float-btn{
 position:fixed;
 right:20px;
@@ -94,24 +100,102 @@ color:#fff;
 text-decoration:none;
 }
 
-.float-call{bottom:100px;background:#c40000;}
+.float-call{bottom:100px;background:var(--primary);}
 .float-whatsapp{bottom:30px;background:#25D366;}
 
+.toggle-mode{
+position:fixed;
+left:20px;
+bottom:30px;
+background:#000;
+color:#fff;
+padding:10px 15px;
+border-radius:30px;
+cursor:pointer;
+}
+
+/* Live Chat */
+.chat-box{
+position:fixed;
+bottom:30px;
+left:20px;
+width:280px;
+background:#fff;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+display:none;
+flex-direction:column;
+}
+
+.chat-header{
+background:var(--primary);
+color:#fff;
+padding:10px;
+border-radius:15px 15px 0 0;
+cursor:pointer;
+}
+
+.chat-messages{
+padding:10px;
+height:150px;
+overflow-y:auto;
+font-size:14px;
+}
+
+.chat-input{
+display:flex;
+}
+
+.chat-input input{
+border:none;
+flex:1;
+padding:8px;
+}
+
+.chat-input button{
+background:var(--primary);
+color:#fff;
+border:none;
+padding:8px 12px;
+}
+
 @media(max-width:768px){
-header h1{font-size:28px;}
-.coverage ul{columns:1;}
+h1{font-size:26px;}
 }
 </style>
 
-<!-- Schema -->
+<script>
+function toggleDarkMode(){
+document.body.classList.toggle("dark");
+}
+
+function trackCall(){
+console.log("Call button clicked");
+}
+
+function toggleChat(){
+let chat=document.getElementById("chatBox");
+chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMessage(){
+let input=document.getElementById("chatInput");
+let msg=input.value;
+if(msg.trim()!==""){
+let messages=document.getElementById("chatMessages");
+messages.innerHTML += "<div>You: "+msg+"</div>";
+input.value="";
+}
+}
+</script>
+
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "EmergencyService",
- "name": "Ambulance Service Lahore",
- "telephone": "+923294857156",
- "areaServed": "Lahore",
- "availableLanguage": ["English","Urdu"]
+ "@context":"https://schema.org",
+ "@type":"EmergencyService",
+ "name":"Ambulance Service Lahore",
+ "telephone":"+923294857156",
+ "areaServed":"Lahore"
 }
 </script>
 
@@ -120,87 +204,73 @@ header h1{font-size:28px;}
 
 <header>
 <h1>Ambulance Service Lahore</h1>
-<p>24/7 Emergency | ICU | Ventilator | Cardiac Ambulance<br>Fast Response – All Over Lahore</p>
-<a href="tel:03294857156" class="btn btn-call">📞 Call Now 03294857156</a>
-<a href="https://wa.me/923294857156" class="btn btn-whatsapp">💬 WhatsApp Now</a>
+<p>24/7 Emergency | ICU | Ventilator | Cardiac<br>Fast Response – All Over Lahore</p>
+<a href="tel:03294857156" onclick="trackCall()" class="btn btn-call">📞 Call 03294857156</a>
+<a href="https://wa.me/923294857156" class="btn btn-whatsapp">💬 WhatsApp</a>
 </header>
 
 <section>
 <div class="section-title">
-<h2>Our Premium Ambulance Services</h2>
+<h2>Our Services</h2>
 </div>
 
 <div class="services">
 <div class="service-box">
 <h3>Emergency Ambulance</h3>
-<p>Immediate response ambulance service with trained paramedics available 24/7 across Lahore.</p>
+<p>Immediate response 24/7 across Lahore.</p>
 </div>
 
 <div class="service-box">
 <h3>ICU Ambulance</h3>
-<p>Fully equipped ICU ambulance with ventilator, cardiac monitor and oxygen support.</p>
-</div>
-
-<div class="service-box">
-<h3>Ventilator Ambulance</h3>
-<p>Safe transfer for critically ill patients requiring ventilator support.</p>
-</div>
-
-<div class="service-box">
-<h3>Cardiac Ambulance</h3>
-<p>Special ambulance for heart patients with advanced emergency cardiac care.</p>
+<p>Advanced ICU setup with ventilator & monitor.</p>
 </div>
 
 <div class="service-box">
 <h3>Patient Transfer</h3>
-<p>Hospital to hospital and home patient shifting with complete safety.</p>
-</div>
-
-<div class="service-box">
-<h3>Dead Body Transfer</h3>
-<p>Respectful and secure mayyat transfer service all over Lahore.</p>
+<p>Hospital to hospital & home shifting service.</p>
 </div>
 </div>
 </section>
 
-<section class="trust">
-<h2>Why Choose Us?</h2>
-<p>✔ 24/7 Availability<br>
-✔ Fast Response Time<br>
-✔ Professional Medical Staff<br>
-✔ Modern ICU Equipment<br>
-✔ Coverage All Over Lahore</p>
-</section>
-
-<section class="coverage">
+<section>
 <div class="section-title">
-<h2>Areas We Cover</h2>
+<h2>Book Ambulance Online</h2>
 </div>
-<ul>
-<li>DHA Lahore</li>
-<li>Johar Town</li>
-<li>Gulberg</li>
-<li>Model Town</li>
-<li>Bahria Town</li>
-<li>Wapda Town</li>
-<li>Allama Iqbal Town</li>
-<li>And All Over Lahore</li>
-</ul>
-</section>
 
-<section class="map">
-<div class="section-title">
-<h2>Our Location</h2>
-</div>
-<iframe src="https://www.google.com/maps?q=Lahore,Pakistan&output=embed"></iframe>
+<form>
+<input type="text" placeholder="Full Name" required>
+<input type="tel" placeholder="Phone Number" required>
+<select required>
+<option value="">Select Service</option>
+<option>Emergency</option>
+<option>ICU</option>
+<option>Ventilator</option>
+</select>
+<textarea placeholder="Pickup Address"></textarea>
+<button type="submit" class="btn btn-call">Submit Booking</button>
+</form>
 </section>
 
 <footer>
-<p>© 2026 Ambulance Service Lahore – 24/7 Fast Response | Call 03294857156</p>
+© 2026 Ambulance Service Lahore – 24/7 Fast Response | 03294857156
 </footer>
 
-<a href="tel:03294857156" class="float-btn float-call">📞</a>
+<a href="tel:03294857156" onclick="trackCall()" class="float-btn float-call">📞</a>
 <a href="https://wa.me/923294857156" class="float-btn float-whatsapp">💬</a>
 
+<div class="toggle-mode" onclick="toggleDarkMode()">🌙 Mode</div>
+
+<!-- Live Chat -->
+<div class="chat-box" id="chatBox" style="display:flex;">
+<div class="chat-header" onclick="toggleChat()">Live Chat</div>
+<div class="chat-messages" id="chatMessages">
+<div>Support: How can we help you?</div>
+</div>
+<div class="chat-input">
+<input type="text" id="chatInput" placeholder="Type message...">
+<button onclick="sendMessage()">Send</button>
+</div>
+</div>
+
 </body>
-  </html>
+ </html>
